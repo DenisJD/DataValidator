@@ -14,7 +14,7 @@ Validator v = new Validator();
 StringSchema schema = v.string();
 
 schema.isValid(""); // true
-// Пока на вызван метод required(), null считается валидным
+// РџРѕРєР° РЅР° РІС‹Р·РІР°РЅ РјРµС‚РѕРґ required(), null СЃС‡РёС‚Р°РµС‚СЃСЏ РІР°Р»РёРґРЅС‹Рј
 schema.isValid(null); // true
 
 schema.required();
@@ -30,14 +30,14 @@ schema.contains("what").isValid("what does the fox say"); // true
 schema.contains("whatthe").isValid("what does the fox say"); // false
 
 schema.isValid("what does the fox say"); // false
-// уже false, так как добавлена ещё одна проверка contains("whatthe")
+// СѓР¶Рµ false, С‚Р°Рє РєР°Рє РґРѕР±Р°РІР»РµРЅР° РµС‰С‘ РѕРґРЅР° РїСЂРѕРІРµСЂРєР° contains("whatthe")
 ```
 #### 2. Number validations
 ```
 Validator v = new Validator();
 NumberSchema schema = v.number();
 
-// Пока на вызван метод required(), null считается валидным
+// РџРѕРєР° РЅР° РІС‹Р·РІР°РЅ РјРµС‚РѕРґ required(), null СЃС‡РёС‚Р°РµС‚СЃСЏ РІР°Р»РёРґРЅС‹Рј
 schema.isValid(null); // true
 schema.positive().isValid(null); // true
 
@@ -47,7 +47,7 @@ schema.isValid(null); // false
 schema.isValid(10) // true
 schema.isValid("5"); // false
 schema.isValid(-10); // false
-//  Ноль - не положительное число
+//  РќРѕР»СЊ - РЅРµ РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРµ С‡РёСЃР»Рѕ
 schema.isValid(0); // false
 
 schema.range(5, 10);
@@ -83,7 +83,7 @@ schema.isValid(data); // true
 Validator v = new Validator();
 MapSchema schema = v.map();
 
-// shape - позволяет описывать валидацию для значений объекта Map по ключам.
+// shape - РїРѕР·РІРѕР»СЏРµС‚ РѕРїРёСЃС‹РІР°С‚СЊ РІР°Р»РёРґР°С†РёСЋ РґР»СЏ Р·РЅР°С‡РµРЅРёР№ РѕР±СЉРµРєС‚Р° Map РїРѕ РєР»СЋС‡Р°Рј.
 Map<String, BaseSchema> schemas = new HashMap<>();
 schemas.put("name", v.string().required());
 schemas.put("age", v.number().positive());
