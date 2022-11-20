@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public abstract class BaseSchema {
-    private final List<Predicate> validations = new ArrayList<>(List.of(x -> true));
+    private final List<Predicate> validations = new ArrayList<>();
 
     public final boolean isValid(Object obj) {
         for (Predicate predicate : validations) {
